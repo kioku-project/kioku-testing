@@ -61,13 +61,7 @@ export const config: Options.Testrunner = {
     //
     capabilities: [{
         browserName: 'chrome'
-    }, {
-        browserName: 'firefox'
-    }, 
-    // {
-    //     browserName: 'MicrosoftEdge'
-    // }
-    ],
+    }],
 
     //
     // ===================
@@ -125,6 +119,7 @@ export const config: Options.Testrunner = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
+    
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -140,14 +135,13 @@ export const config: Options.Testrunner = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec'],
 
-    
-    //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000
     },
+
     //
     // =====
     // Hooks
@@ -164,7 +158,7 @@ export const config: Options.Testrunner = {
     // onPrepare: function (config, capabilities) {
     // },
     /**
-     * Gets executed before a worker process is spawned and can be used to initialise specific service
+     * Gets executed before a worker process is spawned and can be used to initialize specific service
      * for that worker as well as modify runtime environments in an async fashion.
      * @param  {string} cid      capability id (e.g 0-0)
      * @param  {object} caps     object containing capabilities for session that will be spawn in the worker
@@ -224,13 +218,13 @@ export const config: Options.Testrunner = {
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
      */
-    // beforeHook: function (test, context) {
+    // beforeHook: function (test, context, hookName) {
     // },
     /**
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
      */
-    // afterHook: function (test, context, { error, result, duration, passed, retries }) {
+    // afterHook: function (test, context, { error, result, duration, passed, retries }, hookName) {
     // },
     /**
      * Function to be executed after a test (in Mocha/Jasmine only)
@@ -240,7 +234,7 @@ export const config: Options.Testrunner = {
      * @param {*}       result.result    return object of test function
      * @param {number}  result.duration  duration of test
      * @param {boolean} result.passed    true if test has passed, otherwise false
-     * @param {object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
+     * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
@@ -294,5 +288,17 @@ export const config: Options.Testrunner = {
     * @param {string} newSessionId session ID of the new session
     */
     // onReload: function(oldSessionId, newSessionId) {
+    // }
+    /**
+    * Hook that gets executed before a WebdriverIO assertion happens.
+    * @param {object} params information about the assertion to be executed
+    */
+    // beforeAssertion: function(params) {
+    // }
+    /**
+    * Hook that gets executed after a WebdriverIO assertion happened.
+    * @param {object} params information about the assertion that was executed, including its results
+    */
+    // afterAssertion: function(params) {
     // }
 }
